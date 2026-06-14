@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  /* Brutalist Neon Palette */
+  --color-[#FFE500]: #FFE500;
+  --color-[#FF5c00]: #FF5c00;
+  --color-[#00FF66]: #00FF66;
+}
+
+@layer base {
+  body {
+    background-color: #F5EFEB;
+    color: #1A1A1A;
+    font-family: "Space Grotesk", sans-serif;
+  }
+}
+
+/* Brutalist Hard Shadows */
+.brutalist-card {
+  background-color: #FFFFFF;
+  border: 3px solid #1A1A1A;
+  box-shadow: 6px 6px 0px 0px #1A1A1A;
+}
+
+.brutalist-button {
+  background-color: #FFE500;
+  color: #1A1A1A;
+  border: 3px solid #1A1A1A;
+  box-shadow: 4px 4px 0px 0px #1A1A1A;
+  font-weight: 850;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.brutalist-button:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #1A1A1A;
+}
+
+.brutalist-button:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #1A1A1A;
+}
+
+/* Hand-Drawn Retro Texture Overlay */
+.handdrawn-dots {
+  background-size: 20px 20px;
+  background-image: radial-gradient(#1a1a1a 1.2px, transparent 1.2px);
+  opacity: 0.12;
+}
+
+/* Retro Minimalist Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5EFEB;
+  border-left: 3px solid #1A1A1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFE500;
+  border: 3px solid #1A1A1A;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF5c00;
+}

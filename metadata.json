@@ -1,0 +1,6 @@
+{
+  "name": "CodexAegis",
+  "description": "Autonomous Multi-Agent DevSecOps & Live Chaos Engineering Simulation",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

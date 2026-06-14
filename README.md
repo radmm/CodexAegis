@@ -13,7 +13,7 @@ Crafted with a distinct **Neo-Brutalist** aesthetic, CodexAegis utilizes:
 
 ---
 
-## 🚀 Key Features
+## 🔆 Key Features
 
 ### 1. Interactive Live Topology Mapping
 - View active system node connections representing critical files and endpoints (e.g., Auth Server, Payment Gateway, Cookie Manager).

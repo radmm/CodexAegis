@@ -1,0 +1,10 @@
+# This file defines the default owners for this repository
+# For more information, see GitHub documentation on CODEOWNERS
+
+# Global owners - will be requested for review on all PRs
+* @radmm
+
+# Security-related files
+.env* @radmm
+.github/workflows/ @radmm
+src/ @radmm

@@ -1,6 +1,6 @@
 # CodexAegis 🛡️
 
-**CodexAegis** is an advanced, high-contrast interactive DevSecOps dashboard and chaos core vulnerability simulation tool. It is designed to model autonomous multi-agent pipelines scanning repository architectures, generating sandbox payload injection tests, and outputting validated, isolated git branch patches to remediate security risks such as SQL Injections, Race Conditions, and Cookie Session Misconfigurations in real time.
+**CodexAegis** is an advanced, high-contrast interactive DevSecOps dashboard and chaos core vulnerability simulation tool. It is designed to model autonomous multi-agent pipelines scanning reposit[...]
 
 ---
 
@@ -47,6 +47,70 @@ Crafted with a distinct **Neo-Brutalist** aesthetic, CodexAegis utilizes:
 
 ---
 
+## 🚀 How to Run
+
+### Prerequisites
+- **Node.js** (v16 or higher)
+- **npm** or **yarn** package manager
+- **Google Gemini API Key** (required for AI-powered simulations)
+
+### Installation Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/radmm/CodexAegis.git
+   cd CodexAegis
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Configure environment variables**
+   - Copy `.env.example` to `.env.local`
+     ```bash
+     cp .env.example .env.local
+     ```
+   - Add your Google Gemini API key to `.env.local`:
+     ```env
+     GEMINI_API_KEY=your_actual_gemini_api_key_here
+     APP_URL=http://localhost:3000
+     ```
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+   The application will be available at `http://localhost:3000`
+
+5. **Build for production**
+   ```bash
+   npm run build
+   # or
+   yarn build
+   ```
+
+6. **Start the production server**
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
+
+### Development Commands
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production (Vite + esbuild)
+- `npm start` - Run production server
+- `npm run clean` - Remove build artifacts
+- `npm run lint` - Run TypeScript type checking
+
+---
+
 ## 📖 Operational Guide
 
 Follow these steps to operate the simulation:
@@ -69,3 +133,37 @@ Follow these steps to operate the simulation:
 ### Step 4: Perform Remediation Audits
 - Copy recommended code modifications directly with a single click using the **Copy Remediation** buttons.
 - View auto-formatted, ready-to-use branch commands or export complete mock JSON stats directly into your local buffers.
+
+---
+
+## 🔐 Security Considerations
+
+### API Key Protection
+- **Never commit `.env.local` or any files containing API keys** to version control. The `.gitignore` should include `.env.local`.
+- Always use environment variables or secrets management systems (e.g., GitHub Secrets, cloud provider secret managers) for sensitive credentials.
+- Rotate your Gemini API keys regularly and monitor API usage for unauthorized access.
+
+### Server Configuration
+- In production, the server listens on `0.0.0.0:3000`. Consider restricting this to specific IP ranges or running behind a reverse proxy (nginx, Apache) for additional security.
+- Set `NODE_ENV=production` in production environments to disable Vite dev server middleware.
+
+### Input Validation
+- Repository URL inputs are passed to the AI model—ensure proper validation to prevent prompt injection attacks.
+- All user inputs should be sanitized before being sent to external APIs (Gemini).
+
+### CORS & Network Security
+- Configure CORS policies appropriately if the frontend and backend are on different domains.
+- Use HTTPS in production to encrypt API communications with the Gemini service.
+
+### Dependencies
+- Keep dependencies updated: `npm audit` and `npm update` regularly.
+- Review the audit report for vulnerabilities: `npm audit --production` to focus on production dependencies.
+- The project uses `@google/genai`, `express`, and `react` as key dependencies—monitor their security advisories.
+
+### Session Security (Cookies)
+- The application demonstrates insecure cookie handling as a teaching tool. In production systems:
+  - Always set `httpOnly: true` to prevent XSS attacks
+  - Always set `secure: true` for HTTPS-only transmission
+  - Use `sameSite: 'strict'` or `'lax'` for CSRF protection
+
+---
